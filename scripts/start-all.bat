@@ -2,15 +2,15 @@
 echo Starting Zoopi System...
 
 echo Starting Database...
-cd backend-nest
+cd backend
 docker-compose up -d
 cd ..
 
 echo Starting Backend...
-start "Zoopi Backend" cmd /c "cd backend-nest && npm run start:dev"
+start "Zoopi Backend" cmd /c "cd backend && npm run start:dev"
 
 echo Starting Frontend...
-start "Zoopi Frontend" cmd /c "npm run dev"
+start "Zoopi Frontend" cmd /c "cd frontend && npm run dev"
 
 echo System started!
 echo Backend: http://localhost:3847

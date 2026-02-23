@@ -1,0 +1,18 @@
+{
+  "supabaseUrl": "https://ffvznjlnjxajrsgptijk.supabase.co",
+  "supabaseKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmdnpuamxuanhhanJzZ3B0aWprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1ODk5MTgsImV4cCI6MjA4MjE2NTkxOH0.ltVrHo0BYuouzNwYyt4gklOI2PDpKEyMshrmM1HxKNo",
+  "companyId": "SEU-COMPANY-ID-AQUI",
+  
+  "printerType": "usb",
+  
+  "printerHost": "192.168.1.100",
+  "printerPort": 9100,
+  
+  "printerName": "EPSON TM-T20",
+  
+  "pollInterval": 3000,
+  "encoding": "cp860",
+  "beepOnPrint": true,
+  "cutAfterPrint": true,
+  "copies": 1
+}

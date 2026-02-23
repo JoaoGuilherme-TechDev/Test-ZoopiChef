@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Completo do Sistema - Guia de Treinamento</title>
+  <style>
+    @page {
+      margin: 2cm;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #1a56db;
+      border-bottom: 3px solid #1a56db;
+      padding-bottom: 10px;
+      page-break-before: always;
+    }
+    h1:first-of-type {
+      page-break-before: avoid;
+    }
+    h2 {
+      color: #1e40af;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    h3 {
+      color: #3730a3;
+      margin-top: 20px;
+    }
+    h4 {
+      color: #4f46e5;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f3f4f6;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+    .highlight-box {
+      background-color: #eff6ff;
+      border-left: 4px solid #1a56db;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .warning-box {
+      background-color: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .success-box {
+      background-color: #d1fae5;
+      border-left: 4px solid #10b981;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    ul, ol {
+      padding-left: 25px;
+    }
+    li {
+      margin: 5px 0;
+    }
+    code {
+      background-color: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+    pre {
+      background-color: #1f2937;
+      color: #f9fafb;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .page-break {
+      page-break-after: always;
+    }
+    .toc {
+      background-color: #f8fafc;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .toc ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .toc li {
+      padding: 5px 0;
+      border-bottom: 1px dotted #d1d5db;
+    }
+    .toc a {
+      color: #1a56db;
+      text-decoration: none;
+    }
+    .check-item {
+      list-style: none;
+      padding-left: 0;
+    }
+    .check-item li::before {
+      content: "☐ ";
+    }
+    .cover {
+      text-align: center;
+      padding: 100px 0;
+    }
+    .cover h1 {
+      font-size: 2.5em;
+      border: none;
+      page-break-before: avoid;
+    }
+    .cover .subtitle {
+      font-size: 1.5em;
+      color: #6b7280;
+      margin-top: 20px;
+    }
+    .cover .meta {
+      margin-top: 50px;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>📚 MANUAL COMPLETO DO SISTEMA</h1>
+  <div class="subtitle">Guia de Treinamento para Equipe de Testes</div>
+  <div class="meta">
+    <p><strong>Versão:</strong> 1.0</p>
+    <p><strong>Data:</strong> Janeiro 2026</p>
+    <p><strong>Sistema:</strong> Plataforma de Gestão para Restaurantes e Food Service</p>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<h2>📋 ÍNDICE</h2>
+
+<div class="toc">
+  <ul>
+    <li><a href="#visao-geral">1. Visão Geral do Sistema</a></li>
+    <li><a href="#acesso-login">2. Acesso e Login</a></li>
+    <li><a href="#menu-principal">3. Menu Principal - Operações</a></li>
+    <li><a href="#financeiro">4. Menu Financeiro</a></li>
+    <li><a href="#erp-estoque">5. Menu ERP e Estoque</a></li>
+    <li><a href="#cardapio">6. Menu Cardápio</a></li>
+    <li><a href="#gestao-pessoas">7. Menu Gestão de Pessoas</a></li>
+    <li><a href="#logistica">8. Menu Logística</a></li>
+    <li><a href="#fiscal">9. Menu Fiscal</a></li>
+    <li><a href="#integracoes">10. Menu Integrações</a></li>
+    <li><a href="#crm">11. Menu CRM</a></li>
+    <li><a href="#tv-midia">12. Menu TV e Mídia</a></li>
+    <li><a href="#marketing">13. Menu Marketing</a></li>
+    <li><a href="#ia">14. Menu Inteligência Artificial</a></li>
+    <li><a href="#configuracoes">15. Menu Configurações</a></li>
+    <li><a href="#telas-publicas">16. Telas Públicas</a></li>
+    <li><a href="#apps-auxiliares">17. Aplicativos Auxiliares</a></li>
+    <li><a href="#dicas-testadores">18. Dicas para Testadores</a></li>
+    <li><a href="#glossario">Glossário</a></li>
+  </ul>
+</div>
+
+<div class="page-break"></div>
+
+<h1 id="visao-geral">1. VISÃO GERAL DO SISTEMA</h1>
+
+<h2>O que é o Sistema?</h2>
+<p>O sistema é uma plataforma completa de gestão para restaurantes, lanchonetes, pizzarias, bares e qualquer estabelecimento de food service. Ele permite controlar todas as operações do negócio em um único lugar.</p>
+
+<h2>Para quem é?</h2>
+<ul>
+  <li><strong>Donos de restaurantes</strong> que querem ter controle total do negócio</li>
+  <li><strong>Gerentes</strong> que precisam acompanhar vendas e equipe</li>
+  <li><strong>Atendentes e caixas</strong> que realizam as operações do dia a dia</li>
+  <li><strong>Cozinheiros</strong> que precisam ver os pedidos em tempo real</li>
+  <li><strong>Entregadores</strong> que fazem as entregas</li>
+</ul>
+
+<h2>Principais Áreas do Sistema</h2>
+<table>
+  <tr>
+    <th>Área</th>
+    <th>O que faz</th>
+  </tr>
+  <tr>
+    <td><strong>Operacional</strong></td>
+    <td>Gerencia pedidos, mesas, comandas e entregas</td>
+  </tr>
+  <tr>
+    <td><strong>Financeiro</strong></td>
+    <td>Controla caixa, pagamentos e contas</td>
+  </tr>
+  <tr>
+    <td><strong>Cardápio</strong></td>
+    <td>Cadastra produtos, categorias e preços</td>
+  </tr>
+  <tr>
+    <td><strong>Marketing</strong></td>
+    <td>Cria promoções, campanhas e fidelidade</td>
+  </tr>
+  <tr>
+    <td><strong>Inteligência Artificial</strong></td>
+    <td>Sugestões automáticas e análises</td>
+  </tr>
+  <tr>
+    <td><strong>Configurações</strong></td>
+    <td>Personaliza o sistema para sua loja</td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+
+<h1 id="acesso-login">2. ACESSO E LOGIN</h1>
+
+<h2>2.1 Tela de Login</h2>
+
+<p><strong>Caminho:</strong> Página inicial do sistema</p>
+
+<p><strong>O que é:</strong> Tela onde você entra no sistema com seu usuário e senha.</p>
+
+<h3>Como usar:</h3>
+<ol>
+  <li>Digite seu e-mail no campo "E-mail"</li>
+  <li>Digite sua senha no campo "Senha"</li>
+  <li>Clique no botão "Entrar"</li>
+</ol>
+
+<div class="success-box">
+  <strong>Resultado esperado:</strong>
+  <ul>
+    <li>✅ Se os dados estiverem corretos: Você será direcionado ao Dashboard</li>
+    <li>❌ Se os dados estiverem incorretos: Aparece mensagem de erro</li>
+  </ul>
+</div>
+
+<h3>Casos de Teste:</h3>
+<table>
+  <tr>
+    <th>Cenário</th>
+    <th>Ação</th>
+    <th>Resultado Esperado</th>
+  </tr>
+  <tr>
+    <td>Login correto</td>
+    <td>Preencher dados válidos</td>
+    <td>Entrar no sistema</td>
+  </tr>
+  <tr>
+    <td>Senha errada</td>
+    <td>Preencher senha incorreta</td>
+    <td>Mensagem "Credenciais inválidas"</td>
+  </tr>
+  <tr>
+    <td>E-mail inválido</td>
+    <td>Preencher e-mail inexistente</td>
+    <td>Mensagem de erro</td>
+  </tr>
+  <tr>
+    <td>Campos vazios</td>
+    <td>Não preencher nada</td>
+    <td>Validação nos campos</td>
+  </tr>
+</table>
+
+<h2>2.2 Recuperar Senha</h2>
+<h3>Como usar:</h3>
+<ol>
+  <li>Na tela de login, clique em "Esqueci minha senha"</li>
+  <li>Digite seu e-mail</li>
+  <li>Clique em "Enviar"</li>
+  <li>Verifique seu e-mail e siga as instruções</li>
+</ol>
+
+<div class="success-box">
+  <strong>Resultado esperado:</strong> E-mail com link para criar nova senha
+</div>
+
+<div class="page-break"></div>
+
+<h1 id="menu-principal">3. MENU PRINCIPAL - OPERAÇÕES</h1>
+
+<h2>3.1 Dashboard (Painel Principal)</h2>
+
+<p><strong>Caminho:</strong> Menu → Dashboard (ícone de casa)</p>
+
+<p><strong>O que é:</strong> Tela inicial que mostra um resumo de tudo que está acontecendo na loja hoje.</p>
+
+<h3>O que você vê:</h3>
+<ul>
+  <li>Total de vendas do dia</li>
+  <li>Quantidade de pedidos</li>
+  <li>Ticket médio (valor médio por pedido)</li>
+  <li>Pedidos por status (aguardando, em preparo, prontos)</li>
+  <li>Gráficos de desempenho</li>
+</ul>
+
+<h3>Como usar:</h3>
+<ol>
+  <li>Acesse o Dashboard</li>
+  <li>Visualize os números do dia</li>
+  <li>Clique nos cards para ver mais detalhes</li>
+</ol>
+
+<div class="success-box">
+  <strong>Resultado esperado:</strong> Números atualizados em tempo real conforme novos pedidos chegam
+</div>
+
+<h2>3.2 PDV Loja (Ponto de Venda)</h2>
+
+<p><strong>Caminho:</strong> Menu → PDV Loja (ícone de loja)</p>
+
+<p><strong>O que é:</strong> Tela de vendas usada no balcão ou caixa para registrar vendas rápidas.</p>
+
+<h3>O que você pode fazer:</h3>
+<ul>
+  <li>Adicionar produtos ao carrinho</li>
+  <li>Aplicar descontos</li>
+  <li>Receber pagamentos (dinheiro, cartão, PIX)</li>
+  <li>Emitir documentos fiscais</li>
+  <li>Vincular a uma comanda existente</li>
+</ul>
+
+<h3>Como usar passo a passo:</h3>
+
+<h4>Para uma venda simples:</h4>
+<ol>
+  <li>Clique no produto desejado na lista</li>
+  <li>O produto aparece no carrinho à direita</li>
+  <li>Ajuste a quantidade se necessário (botões + e -)</li>
+  <li>Clique em "Pagamento"</li>
+  <li>Escolha a forma de pagamento</li>
+  <li>Digite o valor recebido (se dinheiro)</li>
+  <li>Clique em "Finalizar Venda"</li>
+</ol>
+
+<div class="highlight-box">
+  <h4>🧾 Opções de Finalização de Venda:</h4>
+  <ul>
+    <li><strong>Finalizar Venda:</strong> Encerra a venda sem documento fiscal</li>
+    <li><strong>Emitir Cupom Controle:</strong> Gera um cupom interno sem valor fiscal</li>
+    <li><strong>Emitir NFC-e:</strong> Gera Nota Fiscal de Consumidor Eletrônica</li>
+    <li><strong>Emitir NF-e:</strong> Gera Nota Fiscal Eletrônica (requer cliente cadastrado com CPF/CNPJ completo)</li>
+  </ul>
+</div>
+
+<div class="warning-box">
+  <strong>⚠️ Atenção para NF-e:</strong>
+  <p>Para emitir NF-e, é obrigatório ter um cliente vinculado com todos os dados preenchidos (nome, CPF/CNPJ, endereço). Se o cliente não tiver os dados completos, o sistema abrirá automaticamente a tela de cadastro.</p>
+</div>
+
+<h3>Casos de Teste:</h3>
+<table>
+  <tr>
+    <th>Cenário</th>
+    <th>Ação</th>
+    <th>Resultado Esperado</th>
+  </tr>
+  <tr>
+    <td>Venda simples</td>
+    <td>Adicionar produto e pagar</td>
+    <td>Venda registrada</td>
+  </tr>
+  <tr>
+    <td>Venda com NFC-e</td>
+    <td>Finalizar com "Emitir NFC-e"</td>
+    <td>Nota fiscal emitida</td>
+  </tr>
+  <tr>
+    <td>NF-e sem cliente</td>
+    <td>Tentar emitir NF-e sem cliente</td>
+    <td>Abre tela de cadastro de cliente</td>
+  </tr>
+  <tr>
+    <td>Troco</td>
+    <td>Pagamento maior que total</td>
+    <td>Mostrar troco</td>
+  </tr>
+</table>
+
+<h2>3.3 Terminal Operador</h2>
+
+<p><strong>Caminho:</strong> Menu → Terminal Operador (ícone de layout)</p>
+
+<p><strong>O que é:</strong> Tela simplificada para atendentes e operadores realizarem tarefas rápidas.</p>
+
+<h3>O que você pode fazer:</h3>
+<ul>
+  <li>Ver mesas ocupadas</li>
+  <li>Ver comandas abertas</li>
+  <li>Lançar pedidos rapidamente</li>
+  <li>Chamar garçom</li>
+</ul>
+
+<div class="success-box">
+  <strong>Resultado esperado:</strong> Pedido enviado para a cozinha automaticamente
+</div>
+
+<h2>3.4 Pedidos</h2>
+
+<p><strong>Caminho:</strong> Menu → Pedidos (ícone de lista)</p>
+
+<p><strong>O que é:</strong> Tela principal para gerenciar todos os pedidos do estabelecimento.</p>
+
+<h3>O que você vê:</h3>
+<ul>
+  <li>Lista de pedidos em formato kanban (colunas)</li>
+  <li>Colunas: Novo, Em Preparo, Pronto, Saiu para Entrega, Entregue</li>
+  <li>Detalhes de cada pedido</li>
+</ul>
+
+<h3>Como usar:</h3>
+
+<h4>Para ver um pedido:</h4>
+<ol>
+  <li>Clique no card do pedido</li>
+  <li>Veja todos os detalhes (itens, cliente, endereço)</li>
+</ol>
+
+<h4>Para mover um pedido:</h4>
+<ol>
+  <li>Arraste o card para outra coluna</li>
+  <li>Ou clique e use os botões de ação</li>
+</ol>
+
+<h2>3.5 Mesas</h2>
+
+<p><strong>Caminho:</strong> Menu → Mesas (ícone de garfo e faca)</p>
+
+<p><strong>O que é:</strong> Gerenciamento do salão do restaurante com visão das mesas.</p>
+
+<h3>Cores das mesas:</h3>
+<ul>
+  <li>🟢 <strong>Verde:</strong> Mesa livre</li>
+  <li>🔴 <strong>Vermelho:</strong> Mesa ocupada</li>
+  <li>🟡 <strong>Amarelo:</strong> Mesa reservada</li>
+  <li>🟠 <strong>Laranja:</strong> Mesa aguardando pagamento</li>
+</ul>
+
+<h3>Como abrir uma mesa:</h3>
+<ol>
+  <li>Clique na mesa livre</li>
+  <li>Clique em "Abrir Mesa"</li>
+  <li>Informe número de pessoas (opcional)</li>
+</ol>
+
+<h3>Para fechar a conta:</h3>
+<ol>
+  <li>Clique na mesa</li>
+  <li>Clique em "Fechar Conta"</li>
+  <li>Escolha forma de pagamento</li>
+  <li>Selecione o tipo de documento (Simples, Cupom Controle, NFC-e ou NF-e)</li>
+  <li>Finalize</li>
+</ol>
+
+<h2>3.6 Comandas</h2>
+
+<p><strong>Caminho:</strong> Menu → Comandas (ícone de etiqueta)</p>
+
+<p><strong>O que é:</strong> Gerenciamento de comandas individuais (fichas de consumo).</p>
+
+<h3>Como criar nova comanda:</h3>
+<ol>
+  <li>Clique em "Nova Comanda"</li>
+  <li>Informe o número ou deixe automático</li>
+  <li>Vincule a uma mesa (opcional)</li>
+  <li>Clique em "Criar"</li>
+</ol>
+
+<h3>Para fechar comanda:</h3>
+<ol>
+  <li>Clique na comanda</li>
+  <li>Clique em "Fechar"</li>
+  <li>Escolha forma de pagamento</li>
+  <li>Selecione o tipo de documento fiscal</li>
+  <li>Finalize</li>
+</ol>
+
+<div class="page-break"></div>
+
+<h1 id="financeiro">4. MENU FINANCEIRO</h1>
+
+<h2>4.1 Controle de Caixa</h2>
+
+<p><strong>Caminho:</strong> Menu → Controle de Caixa</p>
+
+<p><strong>O que é:</strong> Abertura, movimentação e fechamento do caixa.</p>
+
+<h3>Operações:</h3>
+
+<h4>Abrir Caixa:</h4>
+<ol>
+  <li>Clique em "Abrir Caixa"</li>
+  <li>Informe o valor inicial (fundo de troco)</li>
+  <li>Confirme</li>
+</ol>
+
+<h4>Fazer Sangria (retirada):</h4>
+<ol>
+  <li>Clique em "Sangria"</li>
+  <li>Informe o valor e motivo</li>
+  <li>Confirme</li>
+</ol>
+
+<h4>Fechar Caixa:</h4>
+<ol>
+  <li>Clique em "Fechar Caixa"</li>
+  <li>Conte o dinheiro físico</li>
+  <li>Informe o valor contado</li>
+  <li>Sistema calcula diferença</li>
+  <li>Confirme</li>
+</ol>
+
+<div class="success-box">
+  <strong>Resultado esperado:</strong>
+  <ul>
+    <li>Caixa aberto/fechado corretamente</li>
+    <li>Movimentações registradas</li>
+    <li>Diferença calculada (sobra/falta)</li>
+  </ul>
+</div>
+
+<h2>4.2 Formas de Pagamento</h2>
+
+<p><strong>Caminho:</strong> Menu → Formas Pagamento</p>
+
+<p><strong>O que é:</strong> Cadastro das formas de pagamento aceitas.</p>
+
+<h3>Formas comuns:</h3>
+<ul>
+  <li>Dinheiro</li>
+  <li>Cartão de Crédito</li>
+  <li>Cartão de Débito</li>
+  <li>PIX</li>
+  <li>Vale Alimentação</li>
+  <li>Vale Refeição</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h1 id="erp-estoque">5. MENU ERP E ESTOQUE</h1>
+
+<h2>5.1 Itens ERP</h2>
+
+<p><strong>O que é:</strong> Cadastro de insumos e matérias-primas.</p>
+
+<h3>Como usar:</h3>
+<ol>
+  <li>Cadastre cada item (farinha, tomate, etc.)</li>
+  <li>Defina unidade de medida</li>
+  <li>Configure estoque mínimo</li>
+  <li>Vincule a fornecedores</li>
+</ol>
+
+<h2>5.2 Fichas Técnicas</h2>
+
+<p><strong>O que é:</strong> Receitas dos produtos com custos.</p>
+
+<h3>Como criar:</h3>
+<ol>
+  <li>Selecione o produto final</li>
+  <li>Adicione ingredientes e quantidades</li>
+  <li>Sistema calcula custo automaticamente</li>
+  <li>Use para precificação</li>
+</ol>
+
+<h2>5.3 Inventário</h2>
+
+<p><strong>O que é:</strong> Contagem física de estoque.</p>
+
+<h3>Como fazer:</h3>
+<ol>
+  <li>Inicie um inventário</li>
+  <li>Conte cada item fisicamente</li>
+  <li>Registre quantidades</li>
+  <li>Sistema calcula diferenças</li>
+  <li>Aprove ajustes</li>
+</ol>
+
+<div class="page-break"></div>
+
+<h1 id="cardapio">6. MENU CARDÁPIO</h1>
+
+<h2>6.1 Categorias</h2>
+
+<p><strong>Caminho:</strong> Menu → Categorias</p>
+
+<p><strong>O que é:</strong> Grupos principais do cardápio (ex: Pizzas, Bebidas, Sobremesas).</p>
+
+<h3>Como criar:</h3>
+<ol>
+  <li>Clique em "Nova Categoria"</li>
+  <li>Digite o nome</li>
+  <li>Adicione imagem (opcional)</li>
+  <li>Defina ordem de exibição</li>
+  <li>Salve</li>
+</ol>
+
+<h2>6.2 Produtos</h2>
+
+<p><strong>Caminho:</strong> Menu → Produtos</p>
+
+<p><strong>O que é:</strong> Cadastro de todos os itens do cardápio.</p>
+
+<h3>Como cadastrar:</h3>
+<ol>
+  <li>Clique em "Novo Produto"</li>
+  <li>Digite nome e descrição</li>
+  <li>Selecione categoria</li>
+  <li>Defina preço</li>
+  <li>Adicione foto</li>
+  <li>Configure opcionais (se tiver)</li>
+  <li>Salve</li>
+</ol>
+
+<h3>Informações importantes:</h3>
+<ul>
+  <li><strong>Nome:</strong> Claro e objetivo</li>
+  <li><strong>Descrição:</strong> Ingredientes e detalhes</li>
+  <li><strong>Preço:</strong> Em reais</li>
+  <li><strong>Foto:</strong> JPG ou PNG, boa qualidade</li>
+  <li><strong>Disponibilidade:</strong> Ativo/Inativo</li>
+</ul>
+
+<h2>6.3 Grupos Opcionais</h2>
+
+<p><strong>O que é:</strong> Extras e adicionais para produtos.</p>
+
+<h3>Exemplos:</h3>
+<ul>
+  <li>Adicionais de pizza (borda recheada)</li>
+  <li>Molhos extras</li>
+  <li>Acompanhamentos</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h1 id="gestao-pessoas">7. MENU GESTÃO DE PESSOAS</h1>
+
+<h2>7.1 Funcionários</h2>
+
+<p><strong>Caminho:</strong> Menu → Funcionários</p>
+
+<h3>Informações cadastradas:</h3>
+<ul>
+  <li>Nome completo</li>
+  <li>Cargo (garçom, cozinheiro, etc.)</li>
+  <li>Telefone e e-mail</li>
+  <li>Data de admissão</li>
+  <li>Salário</li>
+  <li>Tipo de comissão</li>
+</ul>
+
+<h2>7.2 Escalas</h2>
+
+<p><strong>Caminho:</strong> Menu → Escalas</p>
+
+<p><strong>O que é:</strong> Gerenciamento de turnos de trabalho.</p>
+
+<h3>Como usar:</h3>
+<ol>
+  <li>Veja o calendário semanal</li>
+  <li>Arraste funcionários para os turnos</li>
+  <li>Configure horários</li>
+  <li>Salve a escala</li>
+</ol>
+
+<h2>7.3 Comissões</h2>
+
+<p><strong>O que é:</strong> Cálculo de comissões dos funcionários.</p>
+
+<h3>O que você vê:</h3>
+<ul>
+  <li>Vendas de cada funcionário</li>
+  <li>Valor da comissão calculado</li>
+  <li>Status (pendente, aprovado, pago)</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h1 id="logistica">8. MENU LOGÍSTICA</h1>
+
+<h2>8.1 Expedição</h2>
+
+<p><strong>Caminho:</strong> Menu → Expedição</p>
+
+<p><strong>O que é:</strong> Painel de controle de saída de entregas.</p>
+
+<h3>Como usar:</h3>
+<ol>
+  <li>Veja pedidos aguardando expedição</li>
+  <li>Selecione o entregador</li>
+  <li>Agrupe pedidos por rota (opcional)</li>
+  <li>Clique em "Despachar"</li>
+</ol>
+
+<h2>8.2 Rotas de Entrega</h2>
+
+<p><strong>O que é:</strong> Otimização de rotas para entregas.</p>
+
+<h3>Como usar:</h3>
+<ol>
+  <li>Veja pedidos para entrega</li>
+  <li>Sistema sugere melhor rota</li>
+  <li>Atribua ao entregador</li>
+  <li>Acompanhe em tempo real</li>
+</ol>
+
+<div class="page-break"></div>
+
+<h1 id="fiscal">9. MENU FISCAL</h1>
+
+<h2>9.1 Documentos Fiscais</h2>
+
+<p><strong>O que é:</strong> Emissão de notas fiscais.</p>
+
+<h3>Tipos de documentos:</h3>
+<ul>
+  <li><strong>Cupom Controle:</strong> Documento interno sem valor fiscal</li>
+  <li><strong>NFC-e:</strong> Nota Fiscal de Consumidor Eletrônica (cupom fiscal)</li>
+  <li><strong>NF-e:</strong> Nota Fiscal Eletrônica (requer cliente completo)</li>
+  <li><strong>SAT:</strong> Sistema para São Paulo</li>
+</ul>
+
+<div class="warning-box">
+  <strong>⚠️ Importante sobre NF-e:</strong>
+  <p>Para emitir NF-e, o cliente deve ter cadastro completo com: nome, CPF/CNPJ, endereço e opcionalmente e-mail. Se os dados estiverem incompletos, o sistema solicita o preenchimento antes de permitir a emissão.</p>
+</div>
+
+<h2>9.2 Configuração Fiscal</h2>
+
+<h3>Configurações necessárias:</h3>
+<ul>
+  <li>Dados da empresa</li>
+  <li>Certificado digital</li>
+  <li>Séries de notas</li>
+  <li>Tributação</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h1 id="integracoes">10. MENU INTEGRAÇÕES</h1>
+
+<h2>10.1 Hub de Integrações</h2>
+
+<p><strong>O que é:</strong> Central de conexões com outros sistemas.</p>
+
+<h3>Integrações disponíveis:</h3>
+<ul>
+  <li>iFood</li>
+  <li>Rappi</li>
+  <li>Uber Eats</li>
+  <li>WhatsApp Business</li>
+  <li>Sistemas de pagamento</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h1 id="crm">11. MENU CRM</h1>
+
+<h2>11.1 Leads</h2>
+
+<p><strong>O que é:</strong> Clientes em potencial.</p>
+
+<h3>Como usar:</h3>
+<ol>
+  <li>Cadastre novos leads</li>
+  <li>Classifique por interesse</li>
+  <li>Faça follow-up</li>
+  <li>Converta em cliente</li>
+</ol>
+
+<h2>11.2 Pipeline</h2>
+
+<p><strong>O que é:</strong> Funil de vendas visual.</p>
+
+<h3>Estágios típicos:</h3>
+<ul>
+  <li>Novo contato</li>
+  <li>Interesse demonstrado</li>
+  <li>Proposta enviada</li>
+  <li>Negociação</li>
+  <li>Fechado</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h1 id="tv-midia">12. MENU TV E MÍDIA</h1>
+
+<h2>12.1 Telas de TV</h2>
+
+<h3>Como usar:</h3>
+<ol>
+  <li>Cadastre cada TV</li>
+  <li>Defina o que exibir (menu digital, promoções, senhas)</li>
+  <li>Gere o link para a TV</li>
+</ol>
+
+<h2>12.2 Banners TV</h2>
+
+<h3>Como criar:</h3>
+<ol>
+  <li>Clique em "Novo Banner"</li>
+  <li>Faça upload da imagem</li>
+  <li>Defina período de exibição</li>
+  <li>Selecione em quais TVs mostrar</li>
+  <li>Salve</li>
+</ol>
+
+<div class="page-break"></div>
+
+<h1 id="marketing">13. MENU MARKETING</h1>
+
+<h2>13.1 Campanhas</h2>
+
+<h3>Tipos de campanhas:</h3>
+<ul>
+  <li>Desconto em produtos</li>
+  <li>Cupom de desconto</li>
+  <li>Frete grátis</li>
+  <li>Combo promocional</li>
+</ul>
+
+<h2>13.2 Cupons</h2>
+
+<h3>Como criar:</h3>
+<ol>
+  <li>Clique em "Novo Cupom"</li>
+  <li>Defina o código (ex: PROMO10)</li>
+  <li>Configure o desconto (% ou R$)</li>
+  <li>Defina validade</li>
+  <li>Limite de uso (opcional)</li>
+  <li>Salve</li>
+</ol>
+
+<h2>13.3 Fidelidade</h2>
+
+<h3>Funcionalidades:</h3>
+<ul>
+  <li>Ver pontos dos clientes</li>
+  <li>Criar regras de pontuação</li>
+  <li>Definir prêmios de resgate</li>
+  <li>Ver resgates realizados</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h1 id="ia">14. MENU INTELIGÊNCIA ARTIFICIAL</h1>
+
+<h2>14.1 IA Operacional</h2>
+
+<p><strong>O que é:</strong> Sugestões de IA para melhorar a operação.</p>
+
+<h3>O que a IA sugere:</h3>
+<ul>
+  <li>Produtos para promover</li>
+  <li>Horários de pico</li>
+  <li>Ajustes de estoque</li>
+  <li>Problemas detectados</li>
+</ul>
+
+<h2>14.2 Previsão de Churn</h2>
+
+<p><strong>O que é:</strong> IA prevê quais clientes podem parar de comprar.</p>
+
+<h3>O que você vê:</h3>
+<ul>
+  <li>Clientes em risco</li>
+  <li>Motivo provável</li>
+  <li>Ação sugerida</li>
+</ul>
+
+<h2>14.3 Chatbot WhatsApp</h2>
+
+<h3>Configurações:</h3>
+<ul>
+  <li>Mensagem de boas-vindas</li>
+  <li>Horário de atendimento</li>
+  <li>Respostas automáticas</li>
+  <li>Quando transferir para humano</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h1 id="configuracoes">15. MENU CONFIGURAÇÕES</h1>
+
+<h2>15.1 Empresa</h2>
+
+<h3>Informações:</h3>
+<ul>
+  <li>Nome e CNPJ</li>
+  <li>Endereço</li>
+  <li>Telefone e e-mail</li>
+  <li>Horário de funcionamento</li>
+  <li>Logo</li>
+</ul>
+
+<h2>15.2 Impressão</h2>
+
+<h3>Tipos de impressoras:</h3>
+<ul>
+  <li>Impressora de cozinha</li>
+  <li>Impressora de caixa</li>
+  <li>Impressora de expedição</li>
+</ul>
+
+<h3>Como configurar:</h3>
+<ol>
+  <li>Cadastre cada impressora</li>
+  <li>Defina o IP ou porta</li>
+  <li>Configure o que imprime</li>
+  <li>Teste a impressão</li>
+</ol>
+
+<h2>15.3 Usuários</h2>
+
+<h3>Como criar usuário:</h3>
+<ol>
+  <li>Clique em "Novo Usuário"</li>
+  <li>Preencha nome e e-mail</li>
+  <li>Defina senha inicial</li>
+  <li>Selecione perfil de acesso</li>
+  <li>Salve</li>
+</ol>
+
+<h2>15.4 Perfis de Acesso</h2>
+
+<h3>Perfis comuns:</h3>
+<ul>
+  <li><strong>Administrador:</strong> Acesso total</li>
+  <li><strong>Gerente:</strong> Sem financeiro crítico</li>
+  <li><strong>Caixa:</strong> Apenas caixa e pedidos</li>
+  <li><strong>Garçom:</strong> Apenas mesas e comandas</li>
+  <li><strong>Cozinha:</strong> Apenas KDS</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h1 id="telas-publicas">16. TELAS PÚBLICAS</h1>
+
+<p>Estas são telas acessadas por clientes ou dispositivos externos.</p>
+
+<table>
+  <tr>
+    <th>Tela</th>
+    <th>URL</th>
+    <th>Descrição</th>
+  </tr>
+  <tr>
+    <td>Cardápio Digital</td>
+    <td>/cardapio/[slug]</td>
+    <td>Cardápio online para clientes</td>
+  </tr>
+  <tr>
+    <td>Reserva Online</td>
+    <td>/reservas/[slug]</td>
+    <td>Página para fazer reservas</td>
+  </tr>
+  <tr>
+    <td>TV Menu</td>
+    <td>/tv/[token]</td>
+    <td>Exibição do cardápio em TVs</td>
+  </tr>
+  <tr>
+    <td>Painel de Senhas</td>
+    <td>/painel/[token]</td>
+    <td>Tela de senhas sendo chamadas</td>
+  </tr>
+  <tr>
+    <td>KDS Público</td>
+    <td>/kds/[token]</td>
+    <td>Tela de cozinha</td>
+  </tr>
+  <tr>
+    <td>Totem</td>
+    <td>/totem/[token]</td>
+    <td>Interface do totem</td>
+  </tr>
+  <tr>
+    <td>Avaliação</td>
+    <td>/avaliacao/[token]</td>
+    <td>Página de avaliação</td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+
+<h1 id="apps-auxiliares">17. APLICATIVOS AUXILIARES</h1>
+
+<h2>17.1 App do Garçom</h2>
+
+<h3>Funcionalidades:</h3>
+<ul>
+  <li>Ver mesas do salão</li>
+  <li>Abrir e fechar mesas</li>
+  <li>Lançar pedidos</li>
+  <li>Chamar cozinha</li>
+  <li>Imprimir conta</li>
+</ul>
+
+<h2>17.2 App do Entregador</h2>
+
+<h3>Funcionalidades:</h3>
+<ul>
+  <li>Ver entregas atribuídas</li>
+  <li>Navegar até endereço</li>
+  <li>Confirmar entrega</li>
+  <li>Registrar problemas</li>
+</ul>
+
+<h2>17.3 Smart POS</h2>
+
+<h3>Funcionalidades:</h3>
+<ul>
+  <li>Receber pagamentos em cartão</li>
+  <li>Abrir e fechar caixa</li>
+  <li>Consultar comandas</li>
+  <li>Receber fiado</li>
+  <li>Emitir documentos fiscais (Cupom Controle, NFC-e, NF-e)</li>
+</ul>
+
+<div class="warning-box">
+  <strong>⚠️ Emissão de NF-e no Smart POS:</strong>
+  <p>A mesma regra se aplica: para emitir NF-e, é necessário ter cliente cadastrado com dados completos. O sistema solicitará o cadastro se os dados estiverem incompletos.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h1 id="dicas-testadores">18. DICAS PARA TESTADORES</h1>
+
+<h2>Fluxos Principais para Testar</h2>
+
+<h3>Fluxo 1: Venda no Balcão</h3>
+<ol>
+  <li>Login como caixa</li>
+  <li>Abrir caixa com fundo de troco</li>
+  <li>PDV Loja → Adicionar produtos</li>
+  <li>Receber pagamento</li>
+  <li>Testar cada tipo de finalização (simples, cupom controle, NFC-e, NF-e)</li>
+  <li>Fechar caixa ao final do dia</li>
+  <li><strong>Verificar:</strong> Relatório de vendas bate com caixa</li>
+</ol>
+
+<h3>Fluxo 2: NF-e com Cliente</h3>
+<ol>
+  <li>Fazer uma venda no PDV</li>
+  <li>Clicar em "Opções de Documento Fiscal"</li>
+  <li>Selecionar "Emitir NF-e"</li>
+  <li>Se não tiver cliente: tela de cadastro deve abrir</li>
+  <li>Preencher dados do cliente (CPF, endereço)</li>
+  <li>NF-e deve ser emitida</li>
+  <li><strong>Verificar:</strong> Documento fiscal gerado corretamente</li>
+</ol>
+
+<h3>Fluxo 3: Atendimento de Mesa</h3>
+<ol>
+  <li>Abrir mesa para cliente</li>
+  <li>Lançar pedidos na mesa</li>
+  <li>Pedidos aparecem no KDS</li>
+  <li>Cozinha marca como pronto</li>
+  <li>Fechar conta da mesa</li>
+  <li>Escolher documento fiscal</li>
+  <li><strong>Verificar:</strong> Mesa volta a ficar livre</li>
+</ol>
+
+<h2>Lista de Verificação por Área</h2>
+
+<h3>✅ Documentos Fiscais</h3>
+<ul class="check-item">
+  <li>Finalizar venda simples funciona</li>
+  <li>Cupom controle é gerado</li>
+  <li>NFC-e é emitida corretamente</li>
+  <li>NF-e solicita cliente quando não há</li>
+  <li>Cadastro de cliente abre automaticamente</li>
+  <li>NF-e é emitida após cadastro completo</li>
+</ul>
+
+<h3>✅ PDV e Smart POS</h3>
+<ul class="check-item">
+  <li>Botões de finalização aparecem corretamente</li>
+  <li>Dropdown de opções fiscais funciona</li>
+  <li>Cliente vinculado aparece na tela</li>
+  <li>Validação de dados do cliente funciona</li>
+</ul>
+
+<h2>Como Reportar Erros</h2>
+
+<p>Ao encontrar um erro, anote:</p>
+<ol>
+  <li>O que você estava fazendo (passo a passo)</li>
+  <li>O que esperava acontecer</li>
+  <li>O que realmente aconteceu</li>
+  <li>Se apareceu mensagem de erro, qual era</li>
+  <li>Screenshot da tela</li>
+</ol>
+
+<h3>Formato de reporte:</h3>
+<pre>
+ERRO: [Título curto]
+ÁREA: [Menu/Página]
+PASSOS:
+1. Acessei...
+2. Cliquei em...
+3. Preenchi...
+ESPERADO: [O que deveria acontecer]
+RESULTADO: [O que aconteceu]
+EVIDÊNCIA: [Screenshot anexo]
+</pre>
+
+<div class="page-break"></div>
+
+<h1 id="glossario">GLOSSÁRIO</h1>
+
+<table>
+  <tr>
+    <th>Termo</th>
+    <th>Significado</th>
+  </tr>
+  <tr>
+    <td><strong>Dashboard</strong></td>
+    <td>Painel principal com resumo das informações</td>
+  </tr>
+  <tr>
+    <td><strong>PDV</strong></td>
+    <td>Ponto de Venda - onde se registra as vendas</td>
+  </tr>
+  <tr>
+    <td><strong>KDS</strong></td>
+    <td>Kitchen Display System - tela da cozinha</td>
+  </tr>
+  <tr>
+    <td><strong>Comanda</strong></td>
+    <td>Ficha individual de consumo do cliente</td>
+  </tr>
+  <tr>
+    <td><strong>Cupom Controle</strong></td>
+    <td>Documento interno sem valor fiscal</td>
+  </tr>
+  <tr>
+    <td><strong>NFC-e</strong></td>
+    <td>Nota Fiscal de Consumidor Eletrônica</td>
+  </tr>
+  <tr>
+    <td><strong>NF-e</strong></td>
+    <td>Nota Fiscal Eletrônica (requer cliente completo)</td>
+  </tr>
+  <tr>
+    <td><strong>Delivery</strong></td>
+    <td>Pedidos para entrega</td>
+  </tr>
+  <tr>
+    <td><strong>Kanban</strong></td>
+    <td>Visualização em colunas (status)</td>
+  </tr>
+  <tr>
+    <td><strong>CRM</strong></td>
+    <td>Gestão de Relacionamento com Cliente</td>
+  </tr>
+  <tr>
+    <td><strong>ERP</strong></td>
+    <td>Sistema de Gestão Empresarial</td>
+  </tr>
+  <tr>
+    <td><strong>CMV</strong></td>
+    <td>Custo de Mercadoria Vendida</td>
+  </tr>
+  <tr>
+    <td><strong>TEF</strong></td>
+    <td>Transferência Eletrônica de Fundos (maquininha)</td>
+  </tr>
+  <tr>
+    <td><strong>Sangria</strong></td>
+    <td>Retirada de dinheiro do caixa</td>
+  </tr>
+  <tr>
+    <td><strong>Suprimento</strong></td>
+    <td>Entrada de dinheiro no caixa</td>
+  </tr>
+  <tr>
+    <td><strong>Churn</strong></td>
+    <td>Cliente que deixou de comprar</td>
+  </tr>
+  <tr>
+    <td><strong>Lead</strong></td>
+    <td>Potencial cliente</td>
+  </tr>
+  <tr>
+    <td><strong>Smart POS</strong></td>
+    <td>Terminal de pagamento inteligente</td>
+  </tr>
+</table>
+
+<div class="highlight-box" style="margin-top: 50px; text-align: center;">
+  <p><strong>Documento gerado em:</strong> Janeiro 2026</p>
+  <p><strong>Versão do Sistema:</strong> 1.0</p>
+  <p><em>Este documento é confidencial e de uso interno.</em></p>
+</div>
+
+</body>
+</html>

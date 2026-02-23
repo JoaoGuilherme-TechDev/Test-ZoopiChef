@@ -1,0 +1,9 @@
+{
+  "supabaseUrl": "https://ffvznjlnjxajrsgptijk.supabase.co",
+  "supabaseKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmdnpuamxuanhhanJzZ3B0aWprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1ODk5MTgsImV4cCI6MjA4MjE2NTkxOH0.ltVrHo0BYuouzNwYyt4gklOI2PDpKEyMshrmM1HxKNo",
+  "companyId": "4d548b4f-cbcc-4f1b-832b-721424dc5902",
+  "printerName": "Server",
+  "kitchenPrinterIp": "192.168.1.100",
+  "barPrinterIp": "192.168.1.101",
+  "encoding": "cp860"
+}

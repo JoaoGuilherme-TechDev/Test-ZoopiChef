@@ -1,0 +1,42 @@
+{
+  "name": "Zoopi KDS",
+  "short_name": "KDS",
+  "description": "Kitchen Display System - Zoopi Tecnologia",
+  "theme_color": "#ef4444",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "orientation": "landscape",
+  "scope": "/pwa/kds",
+  "start_url": "/pwa/kds",
+  "id": "zoopi-kds",
+  "icons": [
+    {
+      "src": "/zoopi-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

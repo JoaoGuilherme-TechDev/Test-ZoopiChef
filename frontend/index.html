@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Zoopi" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- App Info -->
+    <title>Zoopi Tecnologia - Sistema de Pedidos</title>
+    <meta name="description" content="Sistema completo de pedidos e delivery. Peça online em segundos.
+O único no Brasil com IA de alta performance para otimizar sua experiência.">
+    <meta name="author" content="Zoopi Tecnologia" />
+    <meta name="keywords" content="pedidos, delivery, cardápio, restaurante, comida">
+
+    <!-- Open Graph -->
+    
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/m0yHji8JPAYTRUuwsKXrWs4MwRq1/social-images/social-1768841675652-Adobe Express - file.png">
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    
+    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/m0yHji8JPAYTRUuwsKXrWs4MwRq1/social-images/social-1768841675652-Adobe Express - file.png">
+
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+
+    <!-- Manifest dinâmico para PWA -->
+    <link id="app-manifest" rel="manifest" href="/manifest.webmanifest" />
+    <script>
+      // =====================================================
+      // PWA MANIFEST ROUTER - SETS CORRECT MANIFEST PER APP
+      // =====================================================
+      (function() {
+        try {
+          var path = window.location.pathname;
+          var manifestLink = document.getElementById('app-manifest');
+          if (!manifestLink) return;
+
+          // PWA app routes and their manifests
+          var pwaManifests = {
+            '/pwa/garcom': '/manifest-waiter.webmanifest',
+            '/pwa/entregador': '/manifest-entregador.webmanifest',
+            '/pwa/tablet': '/manifest-tablet.webmanifest',
+            '/pwa/totem': '/manifest-totem.webmanifest',
+            '/pwa/pdv': '/manifest-pdv.webmanifest',
+            '/pwa/terminal': '/manifest-terminal.webmanifest'
+          };
+
+          // Find matching manifest based on path prefix
+          var manifestHref = '/manifest.webmanifest'; // default
+          for (var prefix in pwaManifests) {
+            if (path === prefix || path.startsWith(prefix + '/')) {
+              manifestHref = pwaManifests[prefix];
+              break;
+            }
+          }
+
+          // Also handle legacy routes that might redirect
+          if (path.includes('/garcom')) {
+            manifestHref = '/manifest-waiter.webmanifest';
+          }
+
+          manifestLink.setAttribute('href', manifestHref);
+          console.log('[PWA-Manifest] path=' + path + ' manifest=' + manifestHref);
+        } catch (e) {
+          console.error('[PWA-Manifest] Error:', e);
+        }
+      })();
+    </script>
+    <meta property="og:title" content="Zoopi Tecnologia - Sistema de Pedidos">
+  <meta name="twitter:title" content="Zoopi Tecnologia - Sistema de Pedidos">
+  <meta property="og:description" content="Sistema completo de pedidos e delivery. Peça online em segundos.
+O único no Brasil com IA de alta performance para otimizar sua experiência.">
+  <meta name="twitter:description" content="Sistema completo de pedidos e delivery. Peça online em segundos.
+O único no Brasil com IA de alta performance para otimizar sua experiência.">
+</head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

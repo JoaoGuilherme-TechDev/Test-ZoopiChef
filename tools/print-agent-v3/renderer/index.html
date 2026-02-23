@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoopi Print Agent</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #f39c12, #e74c3c);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .logo h1 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .status-badge {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .status-connected {
+      background: rgba(46, 204, 113, 0.2);
+      color: #2ecc71;
+      border: 1px solid rgba(46, 204, 113, 0.3);
+    }
+
+    .status-disconnected {
+      background: rgba(231, 76, 60, 0.2);
+      color: #e74c3c;
+      border: 1px solid rgba(231, 76, 60, 0.3);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .tab {
+      padding: 12px 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .tab.active {
+      background: linear-gradient(135deg, #f39c12, #e74c3c);
+      border-color: transparent;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: #f39c12;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f39c12, #e74c3c);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .printer-list {
+      list-style: none;
+    }
+
+    .printer-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .printer-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .printer-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .printer-name {
+      font-weight: 500;
+    }
+
+    .printer-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .printer-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    .log-container {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 16px;
+      height: 200px;
+      overflow-y: auto;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 12px;
+    }
+
+    .log-entry {
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .log-time {
+      color: rgba(255,255,255,0.4);
+      margin-right: 10px;
+    }
+
+    .log-success { color: #2ecc71; }
+    .log-error { color: #e74c3c; }
+    .log-info { color: #3498db; }
+
+    .hidden {
+      display: none;
+    }
+
+    .inline-flex {
+      display: flex;
+      gap: 10px;
+    }
+
+    .flex-1 {
+      flex: 1;
+    }
+
+    .mt-4 {
+      margin-top: 16px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-muted {
+      color: rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-icon">🖨️</div>
+        <h1>Zoopi Print Agent</h1>
+      </div>
+      <div id="connectionStatus" class="status-badge status-disconnected">
+        ● Desconectado
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="printers">Impressoras</button>
+      <button class="tab" data-tab="connection">Conexão</button>
+      <button class="tab" data-tab="logs">Logs</button>
+    </div>
+
+    <!-- Aba Impressoras -->
+    <div id="tab-printers" class="tab-content">
+      <div class="card">
+        <h2>🖨️ Impressoras Configuradas</h2>
+        <ul id="printerList" class="printer-list">
+          <li class="text-center text-muted" style="padding: 40px;">
+            Nenhuma impressora configurada.<br>
+            Clique em "Adicionar" para começar.
+          </li>
+        </ul>
+        <button id="btnAddPrinter" class="btn btn-primary mt-4">
+          + Adicionar Impressora
+        </button>
+      </div>
+
+      <!-- Modal Adicionar Impressora -->
+      <div id="addPrinterModal" class="card hidden">
+        <h2>➕ Nova Impressora</h2>
+        <div class="form-group">
+          <label>Nome de Identificação</label>
+          <input type="text" id="printerName" placeholder="Ex: Cozinha, Bar, Escritório">
+        </div>
+        <div class="form-group">
+          <label>Categoria</label>
+          <select id="printerCategory">
+            <option value="cozinha">Cozinha</option>
+            <option value="bar">Bar</option>
+            <option value="caixa">Caixa</option>
+            <option value="principal">Principal/Escritório</option>
+            <option value="etiqueta">Etiquetas</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tipo de Conexão</label>
+          <select id="printerType">
+            <option value="usb">USB (Sistema)</option>
+            <option value="network">Rede (IP)</option>
+          </select>
+        </div>
+        <div id="usbConfig">
+          <div class="form-group">
+            <label>Impressora do Sistema</label>
+            <select id="systemPrinter">
+              <option value="">Carregando...</option>
+            </select>
+          </div>
+        </div>
+        <div id="networkConfig" class="hidden">
+          <div class="inline-flex">
+            <div class="form-group flex-1">
+              <label>Endereço IP</label>
+              <input type="text" id="printerHost" placeholder="192.168.1.100">
+            </div>
+            <div class="form-group" style="width: 100px;">
+              <label>Porta</label>
+              <input type="number" id="printerPort" value="9100">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Largura do Papel</label>
+          <select id="paperWidth">
+            <option value="80">80mm</option>
+            <option value="58">58mm</option>
+          </select>
+        </div>
+        <div class="inline-flex mt-4">
+          <button id="btnSavePrinter" class="btn btn-primary">Salvar</button>
+          <button id="btnCancelPrinter" class="btn btn-secondary">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aba Conexão -->
+    <div id="tab-connection" class="tab-content hidden">
+      <div class="card">
+        <h2>🔗 Configuração de Conexão</h2>
+        <p class="text-muted" style="margin-bottom: 20px;">
+          Configure a conexão com o servidor Zoopi para receber jobs de impressão automaticamente.
+        </p>
+        <div class="form-group">
+          <label>URL do Supabase</label>
+          <input type="text" id="supabaseUrl" placeholder="https://xxxx.supabase.co">
+        </div>
+        <div class="form-group">
+          <label>Chave Anônima (anon key)</label>
+          <input type="text" id="supabaseKey" placeholder="eyJhbGciOiJIUzI1NiIs...">
+        </div>
+        <div class="form-group">
+          <label>ID da Empresa</label>
+          <input type="text" id="companyId" placeholder="UUID da empresa">
+        </div>
+        <div class="form-group">
+          <label>Porta do Servidor Local</label>
+          <input type="number" id="serverPort" value="9898">
+        </div>
+        <div class="inline-flex mt-4">
+          <button id="btnSaveConnection" class="btn btn-primary">Salvar e Conectar</button>
+          <button id="btnTestConnection" class="btn btn-secondary">Testar Conexão</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aba Logs -->
+    <div id="tab-logs" class="tab-content hidden">
+      <div class="card">
+        <h2>📋 Logs de Impressão</h2>
+        <div id="logContainer" class="log-container">
+          <div class="log-entry">
+            <span class="log-time">[--:--:--]</span>
+            <span class="log-info">Aguardando atividade...</span>
+          </div>
+        </div>
+        <button id="btnClearLogs" class="btn btn-secondary mt-4">Limpar Logs</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    // Estado
+    let config = {};
+    let printers = [];
+
+    // Elementos
+    const connectionStatus = document.getElementById('connectionStatus');
+    const printerList = document.getElementById('printerList');
+    const addPrinterModal = document.getElementById('addPrinterModal');
+    const logContainer = document.getElementById('logContainer');
+
+    // Inicialização
+    async function init() {
+      config = await ipcRenderer.invoke('get-config');
+      printers = config.printers || [];
+
+      // Preenche campos de conexão
+      document.getElementById('supabaseUrl').value = config.supabaseUrl || '';
+      document.getElementById('supabaseKey').value = config.supabaseKey || '';
+      document.getElementById('companyId').value = config.companyId || '';
+      document.getElementById('serverPort').value = config.serverPort || 9898;
+
+      renderPrinters();
+      updateConnectionStatus();
+      loadSystemPrinters();
+    }
+
+    // Atualiza status de conexão
+    async function updateConnectionStatus() {
+      const status = await ipcRenderer.invoke('get-connection-status');
+
+      if (status.supabase) {
+        connectionStatus.className = 'status-badge status-connected';
+        connectionStatus.textContent = '● Conectado';
+      } else {
+        connectionStatus.className = 'status-badge status-disconnected';
+        connectionStatus.textContent = '● Desconectado';
+      }
+    }
+
+    // Carrega impressoras do sistema
+    async function loadSystemPrinters() {
+      const systemPrinters = await ipcRenderer.invoke('get-system-printers');
+      const select = document.getElementById('systemPrinter');
+      select.innerHTML = systemPrinters.map(p => 
+        `<option value="${p}">${p}</option>`
+      ).join('');
+    }
+
+    // Renderiza lista de impressoras
+    function renderPrinters() {
+      if (printers.length === 0) {
+        printerList.innerHTML = `
+          <li class="text-center text-muted" style="padding: 40px;">
+            Nenhuma impressora configurada.<br>
+            Clique em "Adicionar" para começar.
+          </li>
+        `;
+        return;
+      }
+
+      printerList.innerHTML = printers.map((p, index) => `
+        <li class="printer-item">
+          <div class="printer-info">
+            <div class="printer-icon">${p.type === 'network' ? '🌐' : '🔌'}</div>
+            <div>
+              <div class="printer-name">${p.name}</div>
+              <div class="printer-meta">
+                ${p.category} • ${p.type === 'network' ? p.host + ':' + p.port : p.systemName} • ${p.paperWidth}mm
+              </div>
+            </div>
+          </div>
+          <div class="printer-actions">
+            <button class="btn btn-icon btn-secondary" onclick="testPrinter(${index})" title="Testar">🖨️</button>
+            <button class="btn btn-icon btn-secondary" onclick="removePrinter(${index})" title="Remover">🗑️</button>
+          </div>
+        </li>
+      `).join('');
+    }
+
+    // Adiciona log
+    function addLog(message, type = 'info') {
+      const time = new Date().toLocaleTimeString();
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      entry.innerHTML = `
+        <span class="log-time">[${time}]</span>
+        <span class="log-${type}">${message}</span>
+      `;
+      logContainer.insertBefore(entry, logContainer.firstChild);
+    }
+
+    // Tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+
+        tab.classList.add('active');
+        document.getElementById(`tab-${tab.dataset.tab}`).classList.remove('hidden');
+      });
+    });
+
+    // Tipo de conexão
+    document.getElementById('printerType').addEventListener('change', (e) => {
+      document.getElementById('usbConfig').classList.toggle('hidden', e.target.value === 'network');
+      document.getElementById('networkConfig').classList.toggle('hidden', e.target.value === 'usb');
+    });
+
+    // Adicionar impressora
+    document.getElementById('btnAddPrinter').addEventListener('click', () => {
+      addPrinterModal.classList.remove('hidden');
+    });
+
+    document.getElementById('btnCancelPrinter').addEventListener('click', () => {
+      addPrinterModal.classList.add('hidden');
+    });
+
+    document.getElementById('btnSavePrinter').addEventListener('click', async () => {
+      const type = document.getElementById('printerType').value;
+      const printer = {
+        id: 'printer-' + Date.now(),
+        name: document.getElementById('printerName').value,
+        category: document.getElementById('printerCategory').value,
+        type: type,
+        paperWidth: parseInt(document.getElementById('paperWidth').value)
+      };
+
+      if (type === 'network') {
+        printer.host = document.getElementById('printerHost').value;
+        printer.port = parseInt(document.getElementById('printerPort').value) || 9100;
+      } else {
+        printer.systemName = document.getElementById('systemPrinter').value;
+      }
+
+      printers.push(printer);
+      await ipcRenderer.invoke('save-config', { printers });
+      
+      renderPrinters();
+      addPrinterModal.classList.add('hidden');
+      addLog(`Impressora "${printer.name}" adicionada`, 'success');
+    });
+
+    // Testar impressora
+    window.testPrinter = async function(index) {
+      const printer = printers[index];
+      addLog(`Testando impressora "${printer.name}"...`, 'info');
+
+      const result = await ipcRenderer.invoke('test-printer', printer);
+      
+      if (result.success) {
+        addLog(`Teste OK: ${printer.name}`, 'success');
+      } else {
+        addLog(`Erro: ${result.message}`, 'error');
+      }
+    };
+
+    // Remover impressora
+    window.removePrinter = async function(index) {
+      const printer = printers[index];
+      printers.splice(index, 1);
+      await ipcRenderer.invoke('save-config', { printers });
+      renderPrinters();
+      addLog(`Impressora "${printer.name}" removida`, 'info');
+    };
+
+    // Salvar conexão
+    document.getElementById('btnSaveConnection').addEventListener('click', async () => {
+      const newConfig = {
+        supabaseUrl: document.getElementById('supabaseUrl').value,
+        supabaseKey: document.getElementById('supabaseKey').value,
+        companyId: document.getElementById('companyId').value,
+        serverPort: parseInt(document.getElementById('serverPort').value) || 9898
+      };
+
+      await ipcRenderer.invoke('save-config', newConfig);
+      const connected = await ipcRenderer.invoke('reconnect-supabase');
+      
+      if (connected) {
+        addLog('Conectado ao servidor Zoopi', 'success');
+      } else {
+        addLog('Falha na conexão - usando polling', 'error');
+      }
+
+      updateConnectionStatus();
+    });
+
+    // Testar conexão
+    document.getElementById('btnTestConnection').addEventListener('click', async () => {
+      addLog('Testando conexão...', 'info');
+      const connected = await ipcRenderer.invoke('reconnect-supabase');
+
+      if (connected) {
+        addLog('Conexão OK!', 'success');
+      } else {
+        addLog('Falha na conexão', 'error');
+      }
+
+      updateConnectionStatus();
+    });
+
+    // Limpar logs
+    document.getElementById('btnClearLogs').addEventListener('click', () => {
+      logContainer.innerHTML = '';
+      addLog('Logs limpos', 'info');
+    });
+
+    // Inicia
+    init();
+  </script>
+</body>
+</html>

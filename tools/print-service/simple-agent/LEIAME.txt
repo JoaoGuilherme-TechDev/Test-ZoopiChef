@@ -1,0 +1,45 @@
+╔════════════════════════════════════════════════════════════════╗
+║         ZOOPI SIMPLE PRINT AGENT                               ║
+╠════════════════════════════════════════════════════════════════╣
+║                                                                ║
+║  Agente de impressão simplificado para Windows USB.            ║
+║  SEM COMPILAR EXE. Só roda e funciona.                         ║
+║                                                                ║
+╠════════════════════════════════════════════════════════════════╣
+║  COMO USAR:                                                    ║
+║                                                                ║
+║  1. Instale o Node.js 18+: https://nodejs.org/                 ║
+║                                                                ║
+║  2. Copie config.example.json para config.json                 ║
+║     e preencha seu COMPANY_ID (ID da empresa no Zoopi)         ║
+║                                                                ║
+║  3. Abra o CMD nesta pasta e execute:                          ║
+║                                                                ║
+║       npm install                                              ║
+║       npm start                                                ║
+║                                                                ║
+║  4. Pronto! O agente vai imprimir automaticamente.             ║
+║                                                                ║
+╠════════════════════════════════════════════════════════════════╣
+║  IMPRESSORA USB:                                               ║
+║                                                                ║
+║  O nome da impressora deve ser EXATAMENTE como aparece no      ║
+║  Painel de Controle > Dispositivos e Impressoras.              ║
+║                                                                ║
+║  Exemplo: "Server", "EPSON TM-T20", "Generic / Text Only"      ║
+║                                                                ║
+╠════════════════════════════════════════════════════════════════╣
+║  TESTAR IMPRESSORA:                                            ║
+║                                                                ║
+║  No Zoopi, vá em Configurações > Impressão > Setores           ║
+║  e clique em "Testar" em qualquer setor USB.                   ║
+║  O job vai aparecer aqui e imprimir.                           ║
+║                                                                ║
+╠════════════════════════════════════════════════════════════════╣
+║  RODAR NO BOOT DO WINDOWS:                                     ║
+║                                                                ║
+║  Crie um atalho para INICIAR.bat na pasta:                     ║
+║  C:\Users\SEU_USUARIO\AppData\Roaming\Microsoft\Windows\       ║
+║  Start Menu\Programs\Startup                                   ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝

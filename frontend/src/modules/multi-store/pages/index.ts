@@ -1,0 +1,1 @@
+export { MultiStorePage } from './MultiStorePage';

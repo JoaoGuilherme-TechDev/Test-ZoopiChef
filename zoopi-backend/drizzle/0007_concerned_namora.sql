@@ -1,0 +1,1 @@
+ALTER TABLE "restaurant_tables" ADD COLUMN "occupied_since" timestamp;

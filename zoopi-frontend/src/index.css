@@ -1,0 +1,552 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 220 85% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 145 75% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 40 95% 50%;
+    --warning-foreground: 0 0% 100%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --neon-purple: 260 85% 60%;
+    --neon-blue: 220 90% 60%;
+    --neon-orange: 24 95% 53%;
+    --neon-green: 145 75% 45%;
+    --glass-bg: rgba(10, 10, 20, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --sidebar-width: 17rem;
+    --sidebar-width-icon: 5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TEMA CLARO — Premium Frost
+     
+     Direção: papel de arroz iluminado com temperatura azul-fria.
+     Fundo mais escuro que branco puro — cria contraste real com os cards
+     brancos que flutuam sobre ele (profundidade física).
+     ═══════════════════════════════════════════════════════════════════════════ */
+  .light {
+    /* Fundo: azul-cinza frio médio — escuro o suficiente para os cards brancos se destacarem */
+    --background: 216 22% 82%;
+
+    /* Texto: tinta de caneta azul-escura, não preto */
+    --foreground: 224 45% 10%;
+
+    /* Cards brancos flutuando sobre o fundo frio — profundidade real */
+    --card: 0 0% 100%;
+    --card-foreground: 224 45% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 45% 10%;
+
+    /* Primary: azul elétrico índigo */
+    --primary: 228 88% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: lavanda muito suave */
+    --secondary: 224 22% 93%;
+    --secondary-foreground: 224 45% 10%;
+
+    /* Muted: cinza-azulado frio */
+    --muted: 220 18% 92%;
+    --muted-foreground: 224 18% 42%;
+
+    /* Accent: índigo/violeta complementar */
+    --accent: 258 72% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 78% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 72% 38%;
+    --success-foreground: 0 0% 100%;
+    --warning: 42 95% 46%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Bordas: linha fria sutil */
+    --border: 218 18% 74%;
+    --input: 218 18% 86%;
+    --ring: 228 88% 52%;
+
+    --neon-purple: 258 72% 52%;
+    --neon-blue: 228 88% 52%;
+
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.80);
+
+    /* ── Glass vars para cards/modais no light ── */
+    --card-glass-bg: rgba(255, 255, 255, 0.78);
+    --card-glass-border: rgba(255, 255, 255, 0.92);
+    --card-glass-shadow-top: rgba(255, 255, 255, 0.95);
+    --card-glass-shadow-bottom: rgba(130, 150, 210, 0.18);
+    --card-glass-inset-dark: rgba(0, 0, 0, 0.04);
+    --card-glass-inset-light: rgba(255, 255, 255, 0.72);
+    --card-glow: rgba(88, 110, 220, 0.07);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TEMA ESCURO — Deep Obsidian Violet
+     
+     Problema do tema anterior: saturação alta no fundo (azul-marinho) +
+     background muito próximo do card = sem profundidade.
+     
+     Nova direção: OBSIDIANA com temperatura violeta muito sutil.
+     Saturação quase zero no fundo — o violeta só aparece nos halos e
+     nos elementos ativos. Dá o feel premium Linear/Apple/Vercel.
+     
+     Sistema de camadas (profundidade física):
+       --background  → 5.5% lightness  = o abismo
+       --card        → 9%   lightness  = superfície flutuante
+       --popover     → 14%  lightness  = elemento elevado
+       --secondary   → 16%  lightness  = preenchimento interno
+       --muted       → 14%  lightness  = hierarquia menor
+     ═══════════════════════════════════════════════════════════════════════════ */
+  .dark {
+    /* Camada 0 — fundo: obsidiana violeta quase preta */
+    --background: 250 18% 5.5%;
+
+    /* Texto: branco levemente quente */
+    --foreground: 220 18% 95%;
+
+    /* Camada 1 — cards: claramente visíveis sobre o fundo */
+    --card: 248 16% 9%;
+    --card-foreground: 220 18% 95%;
+
+    /* Camada 2 — popovers/dropdowns: acima dos cards */
+    --popover: 246 14% 14%;
+    --popover-foreground: 220 18% 95%;
+
+    /* Primary: violeta elétrico vibrante — único elemento saturado */
+    --primary: 258 82% 64%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary/muted: preenchimentos internos */
+    --secondary: 246 12% 16%;
+    --secondary-foreground: 220 18% 88%;
+    --muted: 248 12% 14%;
+    --muted-foreground: 240 8% 62%;
+
+    /* Accent: violeta mais intenso para destaques */
+    --accent: 268 62% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 58% 42%;
+    --destructive-foreground: 0 0% 96%;
+    --success: 152 60% 38%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 88% 48%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Bordas: quase invisíveis mas definidas */
+    --border: 248 12% 18%;
+    --input: 248 12% 16%;
+    --ring: 258 82% 64%;
+
+    --chart-1: 258 72% 64%;
+    --chart-2: 162 58% 42%;
+    --chart-3: 32 78% 52%;
+    --chart-4: 282 62% 58%;
+    --chart-5: 342 72% 52%;
+
+    --neon-purple: 268 78% 65%;
+    --neon-blue: 228 88% 62%;
+    --neon-orange: 24 90% 52%;
+    --neon-green: 152 68% 44%;
+
+    --glass-bg: rgba(12, 11, 20, 0.68);
+    --glass-border: rgba(255, 255, 255, 0.09);
+
+    /* ── Glass vars para cards/modais no dark ── */
+    --card-glass-bg: rgba(20, 18, 34, 0.82);
+    --card-glass-border: rgba(255, 255, 255, 0.09);
+    --card-glass-shadow-top: rgba(255, 255, 255, 0.45);
+    --card-glass-shadow-bottom: rgba(0, 0, 0, 0.32);
+    --card-glass-inset-dark: rgba(0, 0, 0, 0.20);
+    --card-glass-inset-light: rgba(255, 255, 255, 0.06);
+    --card-glow: rgba(120, 80, 255, 0.09);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   FUNDO DO APP — Premium Grid System
+   
+   Aplicado via classes .app-bg, .app-bg-vignette, .app-bg-dots
+   no DashboardLayout.tsx (3 divs separadas para não conflitar
+   com background-size múltiplo do grid).
+   
+   Dark:  obsidiana violeta + grid índigo-violeta + halos de luz ambiente
+   Light: gelo fosco azul-frio + grid azul + halo branco suave
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── DARK ─────────────────────────────────────────────────────────────────── */
+.dark .app-bg {
+  background:
+    /* Halo violeta no topo — fonte de luz ambiente */
+    radial-gradient(ellipse 90% 55% at 50% -2%,  hsl(265 70% 22% / 0.70) 0%, transparent 65%),
+    /* Reflexo índigo — canto inferior direito */
+    radial-gradient(ellipse 55% 45% at 100% 105%, hsl(240 60% 18% / 0.45) 0%, transparent 60%),
+    /* Acento violeta — canto inferior esquerdo */
+    radial-gradient(ellipse 38% 38% at 0%   98%,  hsl(270 55% 14% / 0.38) 0%, transparent 55%),
+    /* Grid horizontal */
+    linear-gradient(rgba(120, 80, 255, 0.055) 1px, transparent 1px),
+    /* Grid vertical */
+    linear-gradient(90deg, rgba(120, 80, 255, 0.055) 1px, transparent 1px),
+    /* Base obsidiana violeta */
+    hsl(250, 18%, 5.5%);
+
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    40px 40px,
+    40px 40px,
+    100% 100%;
+}
+
+/* Vinheta dark — escurece bordas, foca no centro */
+.dark .app-bg-vignette {
+  background: radial-gradient(
+    ellipse 88% 88% at 50% 50%,
+    transparent 36%,
+    hsl(250 25% 3% / 0.65) 100%
+  );
+}
+
+/* Dots dark — pontos violeta nos cruzamentos do grid */
+.dark .app-bg-dots {
+  background-image: radial-gradient(circle, rgba(150, 100, 255, 0.22) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -0.5px -0.5px;
+}
+
+/* ── LIGHT ────────────────────────────────────────────────────────────────── */
+.light .app-bg {
+  background:
+    /* Halo branco quente no topo — luz solar suave */
+    radial-gradient(ellipse 85% 50% at 50% -5%,  hsl(216 60% 98% / 0.90) 0%, transparent 65%),
+    /* Reflexo azul-frio — canto inferior direito */
+    radial-gradient(ellipse 50% 40% at 100% 110%, hsl(220 50% 80% / 0.45) 0%, transparent 60%),
+    /* Acento índigo suave — canto inferior esquerdo */
+    radial-gradient(ellipse 32% 32% at 0%   100%, hsl(240 40% 84% / 0.38) 0%, transparent 55%),
+    /* Grid horizontal azul-frio */
+    linear-gradient(rgba(80, 110, 200, 0.09) 1px, transparent 1px),
+    /* Grid vertical azul-frio */
+    linear-gradient(90deg, rgba(80, 110, 200, 0.09) 1px, transparent 1px),
+    /* Base gelo fosco */
+    hsl(216, 22%, 82%);
+
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    40px 40px,
+    40px 40px,
+    100% 100%;
+}
+
+/* Vinheta light — muito suave, só profundidade */
+.light .app-bg-vignette {
+  background: radial-gradient(
+    ellipse 90% 90% at 50% 50%,
+    transparent 44%,
+    hsl(216 20% 72% / 0.40) 100%
+  );
+}
+
+/* Dots light — pontos azul-frio nos cruzamentos */
+.light .app-bg-dots {
+  background-image: radial-gradient(circle, rgba(70, 110, 220, 0.16) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -0.5px -0.5px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   COMPONENTES
+   ═══════════════════════════════════════════════════════════════════════════════ */
+@layer components {
+
+  /* ── .glass-card — Liquid Water 3D (Camada 0 → superfície principal) ────
+     13 camadas de box-shadow simulando física óptica real.
+     Usa variáveis CSS do tema — automático em dark e light.
+     Prop noHover no card.tsx desativa o translateY para cards estáticos.
+  ── */
+  .glass-card {
+    background: linear-gradient(
+      155deg,
+      var(--card-glass-bg, rgba(20,18,34,0.82)) 0%,
+      color-mix(in srgb, var(--card-glass-bg, rgba(20,18,34,0.82)) 88%, transparent) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    border: 1px solid var(--card-glass-border, rgba(255,255,255,0.09));
+    box-shadow:
+      /* INSET — highlight borda superior */
+      inset 0 1.5px 0 0 var(--card-glass-shadow-top, rgba(255,255,255,0.45)),
+      /* INSET — borda inferior (espessura do vidro) */
+      inset 0 -1px 0 0 rgba(255,255,255,0.05),
+      /* INSET — lateral esquerda (fonte de luz) */
+      inset 1.5px 0 0 0 rgba(255,255,255,0.10),
+      /* INSET — lateral direita (reflexo difuso) */
+      inset -1px 0 0 0 rgba(255,255,255,0.04),
+      /* INSET — profundidade topo */
+      inset 0 4px 16px 0 var(--card-glass-inset-light, rgba(255,255,255,0.06)),
+      /* INSET — peso do vidro */
+      inset 0 -5px 18px 0 var(--card-glass-inset-dark, rgba(0,0,0,0.20)),
+      /* INSET — vinheta central (não é flat) */
+      inset 0 0 28px 4px rgba(0,0,0,0.03),
+      /* EXTERNA — micro linha de luz no topo */
+      0 -0.5px 0 0.5px rgba(255,255,255,0.18),
+      /* EXTERNA — elevação */
+      0 1px 3px  var(--card-glass-shadow-bottom, rgba(0,0,0,0.30)),
+      0 4px 16px rgba(0,0,0,0.08),
+      0 12px 40px rgba(0,0,0,0.06),
+      /* EXTERNA — glow de marca */
+      0 0 0 0.5px var(--card-glow, rgba(120,80,255,0.09)),
+      0 0 24px    var(--card-glow, rgba(120,80,255,0.09));
+    transition:
+      box-shadow 0.30s ease,
+      transform   0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.20s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1.5px 0 0 var(--card-glass-shadow-top, rgba(255,255,255,0.55)),
+      inset 0 -1px 0 0 rgba(255,255,255,0.07),
+      inset 1.5px 0 0 0 rgba(255,255,255,0.14),
+      inset -1px 0 0 0 rgba(255,255,255,0.05),
+      inset 0 4px 16px 0 var(--card-glass-inset-light, rgba(255,255,255,0.08)),
+      inset 0 -5px 18px 0 var(--card-glass-inset-dark, rgba(0,0,0,0.16)),
+      inset 0 0 28px 4px rgba(0,0,0,0.03),
+      0 -0.5px 0 0.5px rgba(255,255,255,0.26),
+      0 2px 6px   var(--card-glass-shadow-bottom, rgba(0,0,0,0.30)),
+      0 8px 28px  rgba(0,0,0,0.12),
+      0 20px 60px rgba(0,0,0,0.08),
+      0 0 0 0.5px var(--card-glow, rgba(120,80,255,0.13)),
+      0 0 40px    var(--card-glow, rgba(120,80,255,0.13));
+    border-color: rgba(255,255,255,0.14);
+  }
+
+  .glass-card-static {
+    @apply glass-card;
+    pointer-events: none;
+  }
+  .glass-card-static:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+
+  /* ── .glass-inner — Camada 1 (bolha convexa dentro do card) ─────────────
+     Física invertida: borda inferior brilha mais que a superior.
+     Para seções internas, inputs agrupados, painéis dentro de cards.
+  ── */
+  .glass-inner {
+    background: linear-gradient(
+      185deg,
+      rgba(0,0,0,0.07) 0%,
+      rgba(0,0,0,0.02) 45%,
+      rgba(255,255,255,0.03) 100%
+    );
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow:
+      inset 0 2.5px 5px 0  rgba(0,0,0,0.14),
+      inset 0 -1.5px 0 0   rgba(255,255,255,0.22),
+      inset 0 -3px 7px 0   rgba(255,255,255,0.06),
+      inset 1.5px 0 4px 0  rgba(255,255,255,0.08),
+      inset -1px 0 3px 0   rgba(255,255,255,0.04),
+      0 1px 3px rgba(0,0,0,0.12),
+      0 2px 8px rgba(0,0,0,0.06);
+    border-radius: inherit;
+  }
+
+  /* ── Utilitários existentes ─────────────────────────────────────────── */
+  .section-header  { @apply text-sm font-black uppercase tracking-widest flex items-center gap-2; }
+  .section-subtitle { @apply text-[10px] text-muted-foreground uppercase font-bold mt-1; }
+  .panel           { @apply p-6 rounded-3xl glass-card; }
+  .panel-soft      { @apply p-4 rounded-2xl glass-inner; }
+  .chip-grid       { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3; }
+  .chip-option     {
+    @apply flex items-center justify-between p-3 rounded-xl transition-all cursor-pointer;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .chip-option:hover { background: rgba(255,255,255,0.07); }
+  .chip-selected {
+    @apply text-primary;
+    background: rgba(120,80,255,0.10);
+    border-color: rgba(120,80,255,0.25);
+  }
+  .chip-badge   { @apply text-[10px] rounded-full; }
+  .action-row   { @apply flex items-center gap-2; }
+  .action-button { @apply h-8 rounded-full text-[10px] font-black; }
+  .count-badge   { @apply text-[10px] rounded-full; }
+
+  .group\/sidebar-wrapper {
+    @apply flex h-screen w-full overflow-hidden bg-background !important;
+  }
+
+  .glass-blade {
+    @apply h-[calc(100vh-2rem)] my-4 ml-4 backdrop-blur-2xl;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+      inset 0 1.5px 0 rgba(255,255,255,0.18),
+      inset 1.5px 0 0 rgba(255,255,255,0.08),
+      0 8px 32px rgba(0,0,0,0.28);
+    transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-item-active {
+    @apply bg-primary text-white !important;
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.6);
+  }
+  .nav-item-hover  { @apply hover:text-primary transition-all duration-200 !important; }
+  .icon-glow-primary { filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.6)); }
+
+  .sidebar-scroll::-webkit-scrollbar       { width: 2px; }
+  .sidebar-scroll::-webkit-scrollbar-thumb { @apply bg-primary/30 rounded-full; }
+
+  [data-state="collapsed"] .sidebar-content-item   { @apply justify-center p-0 !important; }
+  [data-state="collapsed"] .sidebar-header-center  { @apply justify-center p-0 !important; }
+  [data-state="collapsed"] .sidebar-btn-content    { @apply justify-center p-0 !important; }
+  [data-state="collapsed"] .sidebar-btn-content svg { @apply mr-0 !important; }
+
+  .sidebar-inset {
+    @apply flex-1 min-w-0 h-full overflow-hidden relative bg-transparent !important;
+    transition: all 500ms cubic-bezier(0.32, 0.72, 0, 1) !important;
+  }
+}
+
+@layer utilities {
+  .light .text-white          { color: hsl(var(--foreground)); }
+  .light .hover\:text-white:hover { color: hsl(var(--primary)); }
+  .font-display { @apply font-sans; }
+}
+
+@layer base {
+  html, body, #root { @apply font-sans antialiased; }
+}
+
+[data-sidebar="sidebar"] { transition: width 0.5s cubic-bezier(0.32, 0.72, 0, 1) !important; }
+[data-sonner-toaster], [data-radix-toast-viewport] { display: none !important; }
+
+.sidebar-content-wrapper { white-space: nowrap; overflow: hidden; }
+[data-state="collapsed"] .sidebar-hide-on-collapse { opacity: 0; display: none; }
+.sidebar-label-container { white-space: nowrap; overflow: hidden; transition: opacity 0.2s ease-in-out; }
+[data-state="collapsed"] .sidebar-label-container { opacity: 0; pointer-events: none; }
+[data-state="collapsed"] .sidebar-menu-button {
+  justify-content: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* ── Animações globais ─────────────────────────────────────────────────────── */
+@keyframes shimmer        { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
+@keyframes scanline       { 0% { background-position: 0 0; } 100% { background-position: 0 400%; } }
+@keyframes gradient-shift { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+.animate-gradient-shift   { animation: gradient-shift 4s linear infinite; }
+
+/* ── Landing theme (mantido sem alteração) ─────────────────────────────────── */
+.landing-theme {
+  --background: 260 45% 16%;
+  --foreground: 210 40% 96%;
+  --card: 222 30% 16%;
+  --card-foreground: 210 40% 96%;
+  --popover: 222 30% 16%;
+  --popover-foreground: 210 40% 96%;
+  --muted: 222 25% 18%;
+  --muted-foreground: 215 15% 78%;
+  --secondary: 222 28% 20%;
+  --secondary-foreground: 210 40% 96%;
+  --accent: 222 30% 24%;
+  --accent-foreground: 210 40% 96%;
+  --border: 222 20% 26%;
+  --input: 222 25% 22%;
+  --glass-bg: rgba(20, 22, 35, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.12);
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+.animate-shake { animation: shake 0.2s ease-in-out 0s 2; }
+/* ── Sistema de Alertas Inteligente ───────────────────────────────────────── */
+
+/* Tab com erro — pulsa vermelho para guiar o usuário */
+[data-error="true"] {
+  color: #ef4444 !important;
+  animation: tabErrorPulse 1.8s ease-in-out infinite;
+  position: relative;
+}
+
+[data-error="true"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(239, 68, 68, 0.10);
+  border: 1px solid rgba(239, 68, 68, 0.30);
+  pointer-events: none;
+  animation: tabErrorPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes tabErrorPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+
+/* Input com erro — shake já existe via .animate-shake, aqui só a borda */
+.input-error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* btn-neon — botão primário com glow da cor primary */
+.btn-neon {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 0 18px -4px hsl(var(--primary) / 0.55);
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.btn-neon:hover:not(:disabled) {
+  box-shadow: 0 0 28px -4px hsl(var(--primary) / 0.75);
+  transform: translateY(-1px);
+}
+
+.btn-neon:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-neon:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+}

@@ -1,0 +1,17 @@
+# Dependências e Builds (sem a barra inicial para pegar em todas as subpastas)
+node_modules/
+dist/
+build/
+dev-dist/
+
+# Pastas específicas do seu Monorepo
+zoopi-backend/uploads/
+zoopi-backend/generated/prisma/
+zoopi-frontend/dev-dist/
+
+# Logs e arquivos de sistema
+*.log
+.env
+.env.local
+.DS_Store
+projeto-gerado.txt

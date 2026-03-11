@@ -1,0 +1,1 @@
+ALTER TYPE "public"."restaurant_table_status" ADD VALUE 'payment';
